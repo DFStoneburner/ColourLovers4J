@@ -7,3 +7,15 @@ jdk:
 before_install:
   - chmod +x gradlew
 
+env:
+  global:
+    - secure: "QV47ENsjXAebs41lcuAnaJP4Df6oaTRwyHpkf9mAA6OvTFUsQxTiru7nhxT/IfOht8RfwPhDBNqRAXIELqg1mvPyychMo45b7WD5WdrU/bla9cnODkWTDGpjfZhSRsip+lR8U13YWRrhaUuhkZkXuWkfQYPmMgNZ+8gxgxNNekddmG5uyB8G47B5iTEvcccX/zGqRsTjp7zGZPidCmgu8Ltbh45htcQQRHE8PDArtmQYjxWe2mSdmxNu7En+rue7Y4nIcxBG0+mpb90Oo0NcpUhf107sU34w+rSLSjSDV/8kD9kWS1klkxSl7OCuVWPUVhtQuhzIdPZ3tWp6xkc4ofbAQgVZTwp/+Ib8AexjntSLVWklztT0NEEsBp2btm8oCSSQCulFrx75uGlvKZ6F8a/4Kf/oUnnUbLP4GvI6ulbT8Ruo7wJetyB/TzNB1ltQFGLCZb2clEjfT0vA4oSPPyTGyFzilK1TpiA6S7H1Vxru9lzdI7+XpNlsKJoKixv1/fz/g8Hen2cr9ANGcisN135XClpi+3z/xE9SiQFfsX4wcqMYdpiCI44bOfHuEtsCsu+YKoBxbXTsXNij8Pw29ATmcbBZRyt+FYCFMI40fAxgKLkNCXXtd+G+YsjoYd/kyuVITroT2oZSeT7osl3Oqwxfon7C8dz1P8DndaBFL/0="
+addons:
+  coverity_scan:
+    project:
+      name: "DFStoneburner/ColourLovers4J"
+      description: "Build submitted via Travis CI"
+    notification_email: dfstoneburner@gmail.com
+    build_command_prepend: "chmod +x gradlew"
+    build_command: "gradlew assemble"
+    branch_pattern: scan
