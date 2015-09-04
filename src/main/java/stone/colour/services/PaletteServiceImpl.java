@@ -22,8 +22,11 @@ import stone.colour.adapters.HexAdapter;
 import stone.colour.client.ColourLoverClient;
 import stone.colour.models.Hex;
 import stone.colour.models.Palette;
-import stone.colour.requests.ColourLoverRequest;
+import stone.colour.requests.core.ColourLoverRequest;
 import stone.colour.requests.PaletteRequest;
+import stone.colour.requests.PalettesRequest;
+import stone.colour.requests.RandomPaletteRequest;
+import stone.colour.requests.core.HexFilterableRequest;
 
 import java.io.IOException;
 
@@ -43,18 +46,64 @@ public class PaletteServiceImpl {
 
     public Palette getPalette(String hexId) throws IOException {
         PaletteRequest paletteRequest = new PaletteRequest()
-                    .setHexValue(hexId)
-                    .setFormat("json");
+                    .setHexValue(hexId);
 
-            Palette[] colorsResponse = executeRequest(paletteRequest);
+            Palette[] palettesResponse = executeRequest(paletteRequest);
 
-            return colorsResponse != null && colorsResponse.length > 0
-                    ? colorsResponse[0]
+            return palettesResponse != null && palettesResponse.length > 0
+                    ? palettesResponse[0]
                     : null;
+    }
+
+    public Palette getRandomPalette() throws IOException {
+        RandomPaletteRequest randomPaletteRequest = new RandomPaletteRequest();
+
+        Palette[] palettesResponse = executeRequest(randomPaletteRequest);
+
+        return palettesResponse != null && palettesResponse.length > 0
+                ? palettesResponse[0]
+                : null;
+    }
+
+    public Palette[] getPalettesWithColors(String... stringHexes) throws IOException {
+        Hex[] hexes = new Hex[stringHexes.length];
+        for(int i = 0; i < stringHexes.length; i++) {
+            hexes [i] = new Hex(stringHexes[i]);
+        }
+
+        return getPalettesWithColors(hexes);
+    }
+
+    public Palette[] getPalettesWithColors(Hex... hexes) throws IOException {
+        PalettesRequest palettesRequest = new PalettesRequest()
+                .setHexes(hexes);
+
+        Palette[] palettesResponse = executeRequest(palettesRequest);
+
+        return palettesResponse;
+    }
+
+    public Palette[] getPalettesWithHues(String... stringHues) throws IOException {
+        PalettesRequest.Hue[] hues = new PalettesRequest.Hue[stringHues.length];
+        for(int i = 0; i < stringHues.length; i++) {
+            hues [i] = HexFilterableRequest.Hue.valueOf(stringHues[i]);
+        }
+
+        return getPalettesWithHues(hues);
+    }
+
+    public Palette[] getPalettesWithHues(PalettesRequest.Hue... hues) throws IOException {
+        PalettesRequest palettesRequest = new PalettesRequest()
+                .setHues(hues);
+
+        Palette[] palettesResponse = executeRequest(palettesRequest);
+
+        return palettesResponse;
     }
 
     public Palette[] executeRequest(ColourLoverRequest colorRequest) throws IOException {
         try {
+            colorRequest.setFormat("json");
             String response = ColourLoverClient.executeRequest(colorRequest);
             return gson.fromJson(response, Palette[].class);
         } catch (IOException e) {

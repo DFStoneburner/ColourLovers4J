@@ -23,7 +23,7 @@ import stone.colour.client.ColourLoverClient;
 import stone.colour.models.Color;
 import stone.colour.models.Hex;
 import stone.colour.requests.ColorRequest;
-import stone.colour.requests.ColourLoverRequest;
+import stone.colour.requests.core.ColourLoverRequest;
 import stone.colour.requests.RandomColorRequest;
 import stone.colour.requests.TopColorsRequest;
 
@@ -46,8 +46,7 @@ public class ColorServiceImpl implements ColorService {
     @Override
     public Color getColor(String hexId) throws IOException {
         ColorRequest colorRequest = new ColorRequest()
-                .setHexValue(hexId)
-                .setFormat("json");
+                .setHexValue(hexId);
 
         Color[] colorsResponse = executeRequest(colorRequest);
 
@@ -58,8 +57,7 @@ public class ColorServiceImpl implements ColorService {
 
     @Override
     public Color getRandomColor() throws IOException {
-        RandomColorRequest colorRequest = new RandomColorRequest()
-                .setFormat("json");
+        RandomColorRequest colorRequest = new RandomColorRequest();
 
         Color[] colorsResponse = executeRequest(colorRequest);
 
@@ -72,8 +70,7 @@ public class ColorServiceImpl implements ColorService {
     public Color[] getTopColors(int page) throws IOException {
         TopColorsRequest colorRequest = new TopColorsRequest()
                 .setNumResults(pageSize)
-                .setResultOffset(page * pageSize)
-                .setFormat("json");
+                .setResultOffset(page * pageSize);
 
         Color[] colorsResponse = executeRequest(colorRequest);
 
@@ -82,6 +79,7 @@ public class ColorServiceImpl implements ColorService {
 
     public Color[] executeRequest(ColourLoverRequest colorRequest) throws IOException {
         try {
+            colorRequest.setFormat("json");
             String response = ColourLoverClient.executeRequest(colorRequest);
             return gson.fromJson(response, Color[].class);
         } catch (IOException e) {

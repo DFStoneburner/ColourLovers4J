@@ -17,25 +17,12 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 8/29/2015.
  */
-public class ColorRequest extends ColourLoverRequest {
-    private String hexValue;
-
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
-    }
-
-    public String getHexValue() {
-        return hexValue;
-    }
-
-    public ColorRequest setHexValue(String hexValue) {
-        this.hexValue = hexValue;
-        appendUrl(hexValue);
-        return this;
+public class TopPalettesRequest extends PalettesRequest {
+    public TopPalettesRequest() {
+        super(Endpoints.PALETTES_TOP.getRoot());
     }
 }

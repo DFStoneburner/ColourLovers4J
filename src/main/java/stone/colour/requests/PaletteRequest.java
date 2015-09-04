@@ -17,6 +17,7 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
+import stone.colour.requests.core.ColourLoverRequest;
 
 /**
  * Created by Daniel Stoneburner on 9/3/2015.

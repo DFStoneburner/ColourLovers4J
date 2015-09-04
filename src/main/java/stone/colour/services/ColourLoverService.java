@@ -17,7 +17,7 @@
 package stone.colour.services;
 
 import stone.colour.models.Base;
-import stone.colour.requests.ColourLoverRequest;
+import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 

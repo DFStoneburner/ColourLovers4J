@@ -19,7 +19,7 @@ package stone.colour.client;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import stone.colour.requests.ColourLoverRequest;
+import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 

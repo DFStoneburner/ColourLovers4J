@@ -17,25 +17,33 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
+import stone.colour.requests.core.HexFilterableRequest;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class ColorRequest extends ColourLoverRequest {
-    private String hexValue;
+public class PalettesRequest extends HexFilterableRequest {
+    private boolean showPaletteWidths;
 
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
+    public PalettesRequest() {
+        super(Endpoints.PALETTES.getRoot());
+
     }
 
-    public String getHexValue() {
-        return hexValue;
+    protected PalettesRequest(String root) {
+        super(root);
+
     }
 
-    public ColorRequest setHexValue(String hexValue) {
-        this.hexValue = hexValue;
-        appendUrl(hexValue);
-        return this;
+    public boolean isShowPaletteWidths() {
+        return showPaletteWidths;
+    }
+
+    public <T extends PalettesRequest> T setShowPaletteWidths(boolean showPaletteWidths) {
+        this.showPaletteWidths = showPaletteWidths;
+
+        appendParam("showPaletteWidths", (showPaletteWidths ? "1" : "0"));
+
+        return (T) this;
     }
 }
