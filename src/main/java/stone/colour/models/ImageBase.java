@@ -19,43 +19,25 @@ package stone.colour.models;
 import java.net.URL;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/3/2015.
  */
-public class Color extends ImageBase {
+public class ImageBase extends Base {
+    URL imageUrl;
+    URL badgeUrl;
 
-    Hex hex;
-    RGB rgb;
-    HSV hsv;
-
-    public Hex getHex() {
-        return hex;
+    public URL getImageUrl() {
+        return imageUrl;
     }
 
-    public void setHex(Hex hex) {
-        this.hex = hex;
+    public void setImageUrl(URL imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public RGB getRgb() {
-        return rgb;
+    public URL getBadgeUrl() {
+        return badgeUrl;
     }
 
-    public void setRgb(RGB rgb) {
-        this.rgb = rgb;
-    }
-
-    public HSV getHsv() {
-        return hsv;
-    }
-
-    public void setHsv(HSV hsv) {
-        this.hsv = hsv;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBadgeUrl(URL badgeUrl) {
+        this.badgeUrl = badgeUrl;
     }
 }
