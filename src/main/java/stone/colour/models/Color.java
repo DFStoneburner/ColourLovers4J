@@ -17,108 +17,21 @@
 package stone.colour.models;
 
 import java.net.URL;
-import java.util.Date;
 
 /**
  * Created by Daniel Stoneburner on 8/27/2015.
  */
-public class Color {
+public class Color extends ImageBase {
 
-    long id;
-    String title;
-    String userName;
-    long numViews;
-    long numVotes;
-    long numComments;
-    double numHearts;
-    long rank;
-    Date dateCreated;
-    String hex;
+    Hex hex;
     RGB rgb;
     HSV hsv;
-    String description;
-    URL url;
-    URL imageUrl;
-    URL badgeUrl;
-    URL apiUrl;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUsername() {
-        return userName;
-    }
-
-    public void setUser(String userName) {
-        this.userName = userName;
-    }
-
-    public long getNumViews() {
-        return numViews;
-    }
-
-    public void setNumViews(long numViews) {
-        this.numViews = numViews;
-    }
-
-    public long getNumVotes() {
-        return numVotes;
-    }
-
-    public void setNumVotes(long numVotes) {
-        this.numVotes = numVotes;
-    }
-
-    public long getNumComments() {
-        return numComments;
-    }
-
-    public void setNumComments(long numComments) {
-        this.numComments = numComments;
-    }
-
-    public double getNumHearts() {
-        return numHearts;
-    }
-
-    public void setNumHearts(long numHearts) {
-        this.numHearts = numHearts;
-    }
-
-    public long getRank() {
-        return rank;
-    }
-
-    public void setRank(long rank) {
-        this.rank = rank;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public String getHex() {
+    public Hex getHex() {
         return hex;
     }
 
-    public void setHex(String hex) {
+    public void setHex(Hex hex) {
         this.hex = hex;
     }
 
@@ -144,37 +57,5 @@ public class Color {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public URL getUrl() {
-        return url;
-    }
-
-    public void setUrl(URL url) {
-        this.url = url;
-    }
-
-    public URL getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(URL imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public URL getBadgeUrl() {
-        return badgeUrl;
-    }
-
-    public void setBadgeUrl(URL badgeUrl) {
-        this.badgeUrl = badgeUrl;
-    }
-
-    public URL getApiUrl() {
-        return apiUrl;
-    }
-
-    public void setApiUrl(URL apiUrl) {
-        this.apiUrl = apiUrl;
     }
 }

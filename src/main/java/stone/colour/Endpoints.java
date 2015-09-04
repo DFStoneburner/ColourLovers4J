@@ -21,12 +21,16 @@ package stone.colour;
  */
 public enum Endpoints {
 
-    COLORS("http://www.colourlovers.com/api/colors"),
-    COLORS_NEW("http://www.colourlovers.com/api/colors/new"),
-    COLORS_TOP("http://www.colourlovers.com/api/colors/top"),
-
-    COLOR_RANDOM("http://www.colourlovers.com/api/colors/random"),
-    COLOR("http://www.colourlovers.com/api/color");
+    COLOR("http://www.colourlovers.com/api/color"),
+    COLORS(COLOR.getRoot() + "s"),
+    COLOR_RANDOM(COLORS.getRoot() + "/random"),
+    COLORS_NEW(COLORS.getRoot() + "/new"),
+    COLORS_TOP(COLORS.getRoot() + "/top"),
+    PALETTE("http://www.colourlovers.com/api/palette"),
+    PALETTES(PALETTE + "s"),
+    PALETTE_RANDOM(PALETTES + "/random"),
+    PALETTES_NEW(PALETTES + "/new"),
+    PALETTES_TOP(PALETTES + "/top");
 
     private String root;
 

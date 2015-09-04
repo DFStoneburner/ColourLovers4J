@@ -14,21 +14,26 @@
  *    limitations under the License.
  */
 
-group 'stone.colour'
-version '1.0-SNAPSHOT'
+package stone.colour.test;
 
-apply plugin: 'java'
+import static org.junit.Assert.assertNotNull;
 
-sourceCompatibility = 1.7
+import org.junit.Test;
+import stone.colour.models.Palette;
+import stone.colour.services.PaletteServiceImpl;
 
-repositories {
-    mavenCentral()
-}
+import java.io.IOException;
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
+/**
+ * Created by Daniel Stoneburner on 9/3/2015.
+ */
+public class PaletteServiceTests {
+    @Test
+    public void testGet() throws IOException {
+        PaletteServiceImpl paletteService = new PaletteServiceImpl();
 
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+        Palette palette = paletteService.getPalette("113451");
+
+        assertNotNull(palette);
+    }
 }

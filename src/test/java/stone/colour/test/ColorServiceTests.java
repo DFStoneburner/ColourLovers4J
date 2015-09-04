@@ -1,4 +1,4 @@
-/*
+package stone.colour.test;/*
  *    Copyright 2015 Daniel Stoneburner
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,43 +17,45 @@
 import org.junit.Assert;
 import org.junit.Test;
 import stone.colour.models.Color;
-import stone.colour.services.ColorService;
+import stone.colour.services.ColorServiceImpl;
 
 import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Daniel Stoneburner on 8/27/2015.
  */
-public class ColorRepositoryTests {
+public class ColorServiceTests {
 
     @Test
     public void testGet() throws IOException {
-        ColorService colorService = new ColorService();
-        Color color = colorService.getColor("6B4106");
+        ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
+        Color color = colorServiceImpl.getColor("6B4106");
 
-        Assert.assertNotNull(
+        assertNotNull(
                 color
         );
     }
 
     @Test
     public void testGetRandomColors() throws IOException {
-        ColorService colorService = new ColorService();
-        Color color = colorService.getRandomColor();
+        ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
+        Color color = colorServiceImpl.getRandomColor();
 
-        Assert.assertNotNull(color);
+        assertNotNull(color);
     }
 
     @Test
     public void testGetTopColors() throws IOException {
-        ColorService colorService = new ColorService();
-        Color[] firstPage = colorService.getTopColors(0);
+        ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
+        Color[] firstPage = colorServiceImpl.getTopColors(0);
 
-        Assert.assertNotNull(firstPage);
+        assertNotNull(firstPage);
 
-        Color[] secondPage = colorService.getTopColors(1);
+        Color[] secondPage = colorServiceImpl.getTopColors(1);
 
-        Assert.assertNotNull(secondPage);
+        assertNotNull(secondPage);
     }
 
 }

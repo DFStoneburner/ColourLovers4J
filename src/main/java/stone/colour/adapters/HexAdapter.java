@@ -14,19 +14,34 @@
  *    limitations under the License.
  */
 
-package stone.colour.services;
+package stone.colour.adapters;
 
-import stone.colour.models.Color;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import stone.colour.models.Hex;
 
 import java.io.IOException;
 
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public interface ColorService extends ColourLoverService<Color> {
-    Color getColor(String hexId) throws IOException;
+public class HexAdapter extends TypeAdapter<Hex> {
+    @Override
+    public void write(JsonWriter out, Hex value) throws IOException {
+        if (value == null) {
+            out.nullValue();
+            return;
+        }
+        out.value(value.getRaw());
+    }
 
-    Color getRandomColor() throws IOException;
-
-    Color[] getTopColors(int page) throws IOException;
+    @Override
+    public Hex read(JsonReader in) throws IOException {
+        if(in.peek() == null) {
+            in.nextNull();
+            return null;
+        }
+        return new Hex(in.nextString());
+    }
 }

@@ -20,31 +20,31 @@ package stone.colour.models;
  * Created by Daniel on 8/27/2015.
  */
 public class HSV {
-    int hue;
-    int saturation;
-    int value;
+    float hue;
+    float saturation;
+    float value;
 
-    public int getHue() {
+    public float getHue() {
         return hue;
     }
 
-    public void setHue(int hue) {
+    public void setHue(float hue) {
         this.hue = hue;
     }
 
-    public int getSaturation() {
+    public float getSaturation() {
         return saturation;
     }
 
-    public void setSaturation(int saturation) {
+    public void setSaturation(float saturation) {
         this.saturation = saturation;
     }
 
-    public int getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(float value) {
         this.value = value;
     }
 }
