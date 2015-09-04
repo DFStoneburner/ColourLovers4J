@@ -20,7 +20,6 @@ package stone.colour.requests.core;
  * Created by Daniel Stoneburner on 9/4/2015.
  */
 public abstract class SortableRequest extends ColourLoverRequest {
-
     public enum OrderByCol {
         DATE_CREATED("dateCreated"),
         SCORE("score"),

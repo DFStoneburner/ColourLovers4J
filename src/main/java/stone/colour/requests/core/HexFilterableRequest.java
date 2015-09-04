@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class HexFilterableRequest extends SearchableRequest {
+public abstract class HexFilterableRequest extends SearchableRequest {
     protected List<Hue> hues;
     protected List<Hex> hexes;
     private HexLogic hexLogic;

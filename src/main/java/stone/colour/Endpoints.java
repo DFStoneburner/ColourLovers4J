@@ -27,10 +27,15 @@ public enum Endpoints {
     COLORS_NEW(COLORS.getRoot() + "/new"),
     COLORS_TOP(COLORS.getRoot() + "/top"),
     PALETTE("http://www.colourlovers.com/api/palette"),
-    PALETTES(PALETTE + "s"),
-    PALETTE_RANDOM(PALETTES + "/random"),
-    PALETTES_NEW(PALETTES + "/new"),
-    PALETTES_TOP(PALETTES + "/top");
+    PALETTES(PALETTE.getRoot() + "s"),
+    PALETTE_RANDOM(PALETTES.getRoot() + "/random"),
+    PALETTES_NEW(PALETTES.getRoot() + "/new"),
+    PALETTES_TOP(PALETTES.getRoot() + "/top"),
+    PATTERN("http://www.colourlovers.com/api/pattern"),
+    PATTERNS(PATTERN.getRoot() + "s"),
+    PATTERN_RANDOM(PATTERNS.getRoot() + "/random"),
+    PATTERNS_NEW(PATTERNS.getRoot() + "/new"),
+    PATTERNS_TOP(PATTERNS.getRoot() + "/top");
 
     private String root;
 

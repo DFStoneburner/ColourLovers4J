@@ -9,9 +9,9 @@ Work in progress ColourLovers4J is a wrapper client API based on GSON and OkHttp
 Currently complete is:
 * Colours
 * Palettes
+* Patterns
 
 Which leaves incompleted:
-* Patterns
 * Lovers
 * Stats
 

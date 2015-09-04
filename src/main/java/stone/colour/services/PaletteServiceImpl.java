@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public class PaletteServiceImpl {
+public class PaletteServiceImpl implements PaletteService {
     private Gson gson;
     private int pageSize = 20;
 
@@ -44,6 +44,7 @@ public class PaletteServiceImpl {
                 .create();
     }
 
+    @Override
     public Palette getPalette(String hexId) throws IOException {
         PaletteRequest paletteRequest = new PaletteRequest()
                     .setHexValue(hexId);
@@ -55,6 +56,7 @@ public class PaletteServiceImpl {
                     : null;
     }
 
+    @Override
     public Palette getRandomPalette() throws IOException {
         RandomPaletteRequest randomPaletteRequest = new RandomPaletteRequest();
 
@@ -65,6 +67,7 @@ public class PaletteServiceImpl {
                 : null;
     }
 
+    @Override
     public Palette[] getPalettesWithColors(String... stringHexes) throws IOException {
         Hex[] hexes = new Hex[stringHexes.length];
         for(int i = 0; i < stringHexes.length; i++) {
@@ -74,6 +77,7 @@ public class PaletteServiceImpl {
         return getPalettesWithColors(hexes);
     }
 
+    @Override
     public Palette[] getPalettesWithColors(Hex... hexes) throws IOException {
         PalettesRequest palettesRequest = new PalettesRequest()
                 .setHexes(hexes);
@@ -83,6 +87,7 @@ public class PaletteServiceImpl {
         return palettesResponse;
     }
 
+    @Override
     public Palette[] getPalettesWithHues(String... stringHues) throws IOException {
         PalettesRequest.Hue[] hues = new PalettesRequest.Hue[stringHues.length];
         for(int i = 0; i < stringHues.length; i++) {
@@ -92,6 +97,7 @@ public class PaletteServiceImpl {
         return getPalettesWithHues(hues);
     }
 
+    @Override
     public Palette[] getPalettesWithHues(PalettesRequest.Hue... hues) throws IOException {
         PalettesRequest palettesRequest = new PalettesRequest()
                 .setHues(hues);

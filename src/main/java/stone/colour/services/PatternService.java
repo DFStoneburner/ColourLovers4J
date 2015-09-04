@@ -14,18 +14,18 @@
  *    limitations under the License.
  */
 
-package stone.colour.requests;
+package stone.colour.services;
 
-import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
-import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
+import stone.colour.models.Color;
+import stone.colour.models.Pattern;
+
+import java.io.IOException;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/3/2015.
  */
-public class ColorRequest extends SingleValueRequest {
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
-    }
+public interface PatternService extends ColourLoverService<Pattern> {
+    Pattern getPattern(String hexId) throws IOException;
+
+    Pattern getRandomPattern() throws IOException;
 }

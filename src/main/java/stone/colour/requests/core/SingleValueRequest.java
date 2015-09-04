@@ -14,18 +14,27 @@
  *    limitations under the License.
  */
 
-package stone.colour.requests;
+package stone.colour.requests.core;
 
-import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
-import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
+import stone.colour.requests.ColorRequest;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class ColorRequest extends SingleValueRequest {
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
+public abstract class SingleValueRequest extends ColourLoverRequest {
+    private String hexValue;
+
+    protected SingleValueRequest(String root) {
+        super(root);
+    }
+
+    public String getHexValue() {
+        return hexValue;
+    }
+
+    public <T extends SingleValueRequest> T setHexValue(String hexValue) {
+        this.hexValue = hexValue;
+        appendUrl(hexValue);
+        return (T) this;
     }
 }
