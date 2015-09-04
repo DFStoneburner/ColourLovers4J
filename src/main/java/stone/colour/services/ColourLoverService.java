@@ -16,17 +16,14 @@
 
 package stone.colour.services;
 
-import stone.colour.models.Color;
+import stone.colour.models.Base;
+import stone.colour.requests.ColourLoverRequest;
 
 import java.io.IOException;
 
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public interface ColorService extends ColourLoverService<Color> {
-    Color getColor(String hexId) throws IOException;
-
-    Color getRandomColor() throws IOException;
-
-    Color[] getTopColors(int page) throws IOException;
+public interface ColourLoverService<T extends Base> {
+    public T[] executeRequest(ColourLoverRequest request) throws IOException;
 }
