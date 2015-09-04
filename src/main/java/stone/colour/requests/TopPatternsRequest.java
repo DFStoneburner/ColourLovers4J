@@ -17,15 +17,13 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
-import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
+import stone.colour.requests.core.SearchableRequest;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class ColorRequest extends SingleValueRequest {
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
+public class TopPatternsRequest extends SearchableRequest {
+    protected TopPatternsRequest() {
+        super(Endpoints.PATTERNS_TOP.getRoot());
     }
 }

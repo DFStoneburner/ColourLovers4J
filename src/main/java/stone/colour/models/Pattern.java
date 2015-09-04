@@ -14,18 +14,18 @@
  *    limitations under the License.
  */
 
-package stone.colour.requests;
+package stone.colour.models;
 
-import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
-import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
+import java.util.List;
 
-/**
- * Created by Daniel Stoneburner on 8/27/2015.
- */
-public class ColorRequest extends SingleValueRequest {
-    public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
+public class Pattern extends ImageBase {
+    List<Hex> colors;
+
+    public List<Hex> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<Hex> colors) {
+        this.colors = colors;
     }
 }
