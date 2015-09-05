@@ -14,32 +14,20 @@
  *    limitations under the License.
  */
 
-package stone.colour.test;
+package stone.colour.requests;
 
-import org.junit.Test;
 import stone.colour.Endpoints;
-import stone.colour.requests.ColorRequest;
-
-import static org.junit.Assert.assertEquals;
-
+import stone.colour.requests.core.SortableRequest;
 
 /**
- * Created by Daniel on 8/29/2015.
+ * Created by Daniel Stoneburner on 9/5/2015.
  */
-public class ColorRequestTests {
-
-    @Test
-    public void testNoParams() {
-        ColorRequest colorRequest = new ColorRequest();
-
-        assertEquals(Endpoints.COLOR.getRoot(), colorRequest.getAbsoluteUrl());
+public class LoversRequest extends SortableRequest {
+    public LoversRequest() {
+        super(Endpoints.LOVERS.getRoot());
     }
 
-
-    @Test
-    public void testHexValue() {
-        ColorRequest colorRequest = new ColorRequest().setValue("000000");
-
-        assertEquals(Endpoints.COLOR.getRoot() + "/000000", colorRequest.getAbsoluteUrl());
+    protected LoversRequest(String root) {
+        super(root);
     }
 }

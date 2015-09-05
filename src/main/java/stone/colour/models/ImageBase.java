@@ -17,13 +17,78 @@
 package stone.colour.models;
 
 import java.net.URL;
+import java.util.Date;
 
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
 public class ImageBase extends Base {
+    String title;
+    long numViews;
+    long numVotes;
+    long numComments;
+    double numHearts;
+    long rank;
+    Date dateCreated;
+    String description;
     URL imageUrl;
     URL badgeUrl;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public long getNumViews() {
+        return numViews;
+    }
+
+    public void setNumViews(long numViews) {
+        this.numViews = numViews;
+    }
+
+    public long getNumVotes() {
+        return numVotes;
+    }
+
+    public void setNumVotes(long numVotes) {
+        this.numVotes = numVotes;
+    }
+
+    public long getNumComments() {
+        return numComments;
+    }
+
+    public void setNumComments(long numComments) {
+        this.numComments = numComments;
+    }
+
+    public double getNumHearts() {
+        return numHearts;
+    }
+
+    public void setNumHearts(long numHearts) {
+        this.numHearts = numHearts;
+    }
+
+    public long getRank() {
+        return rank;
+    }
+
+    public void setRank(long rank) {
+        this.rank = rank;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
     public URL getImageUrl() {
         return imageUrl;

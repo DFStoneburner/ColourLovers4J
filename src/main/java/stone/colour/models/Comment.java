@@ -16,47 +16,37 @@
 
 package stone.colour.models;
 
-import java.net.URL;
 import java.util.Date;
 
 /**
- * Created by Daniel Stoneburner on 9/3/2015.
+ * Created by Daniel Stoneburner on 9/5/2015.
  */
-public abstract class Base {
-    long id;
-    String userName;
-    URL url;
-    URL apiUrl;
+public class Comment {
+    Date commentDate;
+    String commentUserName;
+    String commentComments;
 
-    public long getId() {
-        return id;
+    public Date getCommentDate() {
+        return commentDate;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
     }
 
-    public String getUsername() {
-        return userName;
+    public String getCommentUserName() {
+        return commentUserName;
     }
 
-    public void setUser(String userName) {
-        this.userName = userName;
+    public void setCommentUserName(String commentUserName) {
+        this.commentUserName = commentUserName;
     }
 
-    public URL getUrl() {
-        return url;
+    public String getCommentComments() {
+        return commentComments;
     }
 
-    public void setUrl(URL url) {
-        this.url = url;
-    }
-
-    public URL getApiUrl() {
-        return apiUrl;
-    }
-
-    public void setApiUrl(URL apiUrl) {
-        this.apiUrl = apiUrl;
+    public void setCommentComments(String commentComments) {
+        this.commentComments = commentComments;
     }
 }
