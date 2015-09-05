@@ -45,7 +45,7 @@ public class PatternServiceImpl implements PatternService {
     @Override
     public Pattern getPattern(String hexId) throws IOException {
         PatternRequest patternRequest = new PatternRequest()
-                .setHexValue(hexId);
+                .setValue(hexId);
 
         Pattern[] patternsResponse = executeRequest(patternRequest);
 

@@ -46,7 +46,7 @@ public class ColorServiceImpl implements ColorService {
     @Override
     public Color getColor(String hexId) throws IOException {
         ColorRequest colorRequest = new ColorRequest()
-                .setHexValue(hexId);
+                .setValue(hexId);
 
         Color[] colorsResponse = executeRequest(colorRequest);
 

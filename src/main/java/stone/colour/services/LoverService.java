@@ -14,32 +14,19 @@
  *    limitations under the License.
  */
 
-package stone.colour.test;
+package stone.colour.services;
 
-import org.junit.Test;
-import stone.colour.Endpoints;
-import stone.colour.requests.ColorRequest;
+import stone.colour.models.Lover;
 
-import static org.junit.Assert.assertEquals;
-
+import java.io.IOException;
 
 /**
- * Created by Daniel on 8/29/2015.
+ * Created by Daniel Stoneburner on 9/5/2015.
  */
-public class ColorRequestTests {
+public interface LoverService extends ColourLoverService<Lover> {
+    Lover getLover(String user) throws IOException;
 
-    @Test
-    public void testNoParams() {
-        ColorRequest colorRequest = new ColorRequest();
+    Lover[] getNewLovers(int page) throws IOException;
 
-        assertEquals(Endpoints.COLOR.getRoot(), colorRequest.getAbsoluteUrl());
-    }
-
-
-    @Test
-    public void testHexValue() {
-        ColorRequest colorRequest = new ColorRequest().setValue("000000");
-
-        assertEquals(Endpoints.COLOR.getRoot() + "/000000", colorRequest.getAbsoluteUrl());
-    }
+    Lover[] getTopLovers(int page) throws IOException;
 }

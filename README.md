@@ -10,9 +10,9 @@ Currently complete is:
 * Colours
 * Palettes
 * Patterns
+* Lovers
 
 Which leaves incompleted:
-* Lovers
 * Stats
 
 Licensing

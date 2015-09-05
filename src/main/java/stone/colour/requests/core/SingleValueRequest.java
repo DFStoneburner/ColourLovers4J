@@ -16,25 +16,23 @@
 
 package stone.colour.requests.core;
 
-import stone.colour.requests.ColorRequest;
-
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
 public abstract class SingleValueRequest extends ColourLoverRequest {
-    private String hexValue;
+    private String value;
 
     protected SingleValueRequest(String root) {
         super(root);
     }
 
-    public String getHexValue() {
-        return hexValue;
+    public String getValue() {
+        return value;
     }
 
-    public <T extends SingleValueRequest> T setHexValue(String hexValue) {
-        this.hexValue = hexValue;
-        appendUrl(hexValue);
+    public <T extends SingleValueRequest> T setValue(String value) {
+        this.value = value;
+        appendUrl(value);
         return (T) this;
     }
 }

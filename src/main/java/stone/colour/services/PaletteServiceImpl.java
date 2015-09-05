@@ -47,7 +47,7 @@ public class PaletteServiceImpl implements PaletteService {
     @Override
     public Palette getPalette(String hexId) throws IOException {
         PaletteRequest paletteRequest = new PaletteRequest()
-                    .setHexValue(hexId);
+                    .setValue(hexId);
 
             Palette[] palettesResponse = executeRequest(paletteRequest);
 
