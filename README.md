@@ -4,16 +4,9 @@ ColourLovers4J
 [![Build Status](https://travis-ci.org/DFStoneburner/ColourLovers4J.svg)](https://travis-ci.org/DFStoneburner/ColourLovers4J)
 [![Static Analysis Status](https://scan.coverity.com/projects/6210/badge.svg)](https://scan.coverity.com/projects/dfstoneburner-colourlovers4j)
 
-Work in progress ColourLovers4J is a wrapper client API based on GSON and OkHttp to provide out of the box access.
+ColourLovers4J is a wrapper client API based on GSON and OkHttp to provide out of the box access.
 
-Currently complete is:
-* Colours
-* Palettes
-* Patterns
-* Lovers
-
-Which leaves incompleted:
-* Stats
+Documentation is current underway so expect an update soon!
 
 Licensing
 ---------

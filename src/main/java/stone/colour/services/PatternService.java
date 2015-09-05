@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public interface PatternService extends ColourLoverService<Pattern> {
+public interface PatternService extends ColourLoverService<Pattern[]> {
     Pattern getPattern(String hexId) throws IOException;
 
     Pattern getRandomPattern() throws IOException;

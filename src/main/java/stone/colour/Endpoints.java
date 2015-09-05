@@ -39,7 +39,11 @@ public enum Endpoints {
     PATTERNS(PATTERN.getRoot() + "s"),
     PATTERN_RANDOM(PATTERNS.getRoot() + "/random"),
     PATTERNS_NEW(PATTERNS.getRoot() + "/new"),
-    PATTERNS_TOP(PATTERNS.getRoot() + "/top");
+    PATTERNS_TOP(PATTERNS.getRoot() + "/top"),
+    STATS_COLORS("http://www.colourlovers.com/api/stats/colors"),
+    STATS_PALETTES("http://www.colourlovers.com/api/stats/palettes"),
+    STATS_PATTERNS("http://www.colourlovers.com/api/stats/patterns"),
+    STATS_LOVERS("http://www.colourlovers.com/api/stats/lovers");
 
     private String root;
 

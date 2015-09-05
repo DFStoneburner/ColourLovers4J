@@ -25,7 +25,7 @@ import java.io.IOException;
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
-public interface PaletteService  extends ColourLoverService<Palette> {
+public interface PaletteService  extends ColourLoverService<Palette[]> {
 
     Palette getPalette(String hexId) throws IOException;
 

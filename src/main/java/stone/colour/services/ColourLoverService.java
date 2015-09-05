@@ -24,6 +24,6 @@ import java.io.IOException;
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public interface ColourLoverService<T extends Base> {
-    public T[] executeRequest(ColourLoverRequest request) throws IOException;
+public interface ColourLoverService<T extends Object> {
+    public T executeRequest(ColourLoverRequest request) throws IOException;
 }

@@ -16,17 +16,19 @@
 
 package stone.colour.services;
 
-import stone.colour.models.Lover;
+import stone.colour.models.Stats;
 
 import java.io.IOException;
 
 /**
  * Created by Daniel Stoneburner on 9/5/2015.
  */
-public interface LoverService extends ColourLoverService<Lover[]> {
-    Lover getLover(String user) throws IOException;
+public interface StatsService extends ColourLoverService<Stats> {
+    Stats getColorsStats() throws IOException;
 
-    Lover[] getNewLovers(int page) throws IOException;
+    Stats getLoversStats() throws IOException;
 
-    Lover[] getTopLovers(int page) throws IOException;
+    Stats getPalettesStats() throws IOException;
+
+    Stats getPatternsStats() throws IOException;
 }
