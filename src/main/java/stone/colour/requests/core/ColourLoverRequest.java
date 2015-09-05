@@ -46,7 +46,7 @@ public abstract class ColourLoverRequest {
 
     public ColourLoverRequest setCallback(String callback) {
         this.callback = callback;
-        appendParam("callback", callback);
+        appendParam("jsonCallback", callback);
         return this;
     }
 

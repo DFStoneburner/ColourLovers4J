@@ -14,19 +14,19 @@
  *    limitations under the License.
  */
 
-package stone.colour.services;
-
-import stone.colour.models.Lover;
-
-import java.io.IOException;
+package stone.colour.models;
 
 /**
  * Created by Daniel Stoneburner on 9/5/2015.
  */
-public interface LoverService extends ColourLoverService<Lover[]> {
-    Lover getLover(String user) throws IOException;
+public class Stats {
+    long total;
 
-    Lover[] getNewLovers(int page) throws IOException;
+    public long getTotal() {
+        return total;
+    }
 
-    Lover[] getTopLovers(int page) throws IOException;
+    public void setTotal(long total) {
+        this.total = total;
+    }
 }

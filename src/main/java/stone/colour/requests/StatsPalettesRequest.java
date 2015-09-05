@@ -14,19 +14,16 @@
  *    limitations under the License.
  */
 
-package stone.colour.services;
+package stone.colour.requests;
 
-import stone.colour.models.Lover;
-
-import java.io.IOException;
+import stone.colour.Endpoints;
+import stone.colour.requests.core.ColourLoverRequest;
 
 /**
  * Created by Daniel Stoneburner on 9/5/2015.
  */
-public interface LoverService extends ColourLoverService<Lover[]> {
-    Lover getLover(String user) throws IOException;
-
-    Lover[] getNewLovers(int page) throws IOException;
-
-    Lover[] getTopLovers(int page) throws IOException;
+public class StatsPalettesRequest extends ColourLoverRequest {
+    public StatsPalettesRequest() {
+        super(Endpoints.STATS_PALETTES.getRoot());
+    }
 }
