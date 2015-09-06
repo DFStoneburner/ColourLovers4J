@@ -17,16 +17,66 @@
 package stone.colour.services;
 
 import stone.colour.models.Lover;
+import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 
 /**
+ * Service layer for single and multiple Lover operations.
+ *
  * Created by Daniel Stoneburner on 9/5/2015.
+ *
+ * @see ColourLoverService
  */
 public interface LoverService extends ColourLoverService<Lover[]> {
+
+    /**
+     * Gets a Lover based on their username
+     *
+     * @param user the username to search for
+     * @return the lover queried for or null if they do not exist
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Lover getLover(String user) throws IOException;
 
+    /**
+     * A wrapper for {@link #getNewLovers(int)} which gets the first page.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @see #getNewLovers(int)
+     */
+    Lover[] getNewLovers() throws IOException;
+
+    /**
+     * Gets the specified page of the newest Lovers.
+     *
+     * @param page the page number that determines the offset to query
+     * @return when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @throws IOException
+     */
     Lover[] getNewLovers(int page) throws IOException;
 
+    /**
+     * A wrapper for {@link #getTopLovers(int)} which gets the first page.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @see #getTopLovers(int)
+     */
+    Lover[] getTopLovers() throws IOException;
+
+    /**
+     * Gets the specified page of the most popular Lovers.
+     *
+     * @param page the page number that determines the offset to query
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Lover[] getTopLovers(int page) throws IOException;
 }

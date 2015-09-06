@@ -22,10 +22,8 @@ import stone.colour.adapters.HexAdapter;
 import stone.colour.client.ColourLoverClient;
 import stone.colour.models.Color;
 import stone.colour.models.Hex;
-import stone.colour.requests.ColorRequest;
+import stone.colour.requests.*;
 import stone.colour.requests.core.ColourLoverRequest;
-import stone.colour.requests.RandomColorRequest;
-import stone.colour.requests.TopColorsRequest;
 
 import java.io.IOException;
 
@@ -67,14 +65,46 @@ public class ColorServiceImpl implements ColorService {
     }
 
     @Override
+    public Color[] getTopColors() throws IOException {
+        return getNewColors(0);
+    }
+
+    @Override
     public Color[] getTopColors(int page) throws IOException {
         TopColorsRequest colorRequest = new TopColorsRequest()
                 .setNumResults(pageSize)
                 .setResultOffset(page * pageSize);
 
-        Color[] colorsResponse = executeRequest(colorRequest);
+        return executeRequest(colorRequest);
+    }
 
-        return colorsResponse;
+    @Override
+    public Color[] getNewColors() throws IOException {
+        return getNewColors(0);
+    }
+
+    @Override
+    public Color[] getNewColors(int page) throws IOException {
+        NewColorsRequest colorRequest = new NewColorsRequest()
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(colorRequest);
+    }
+
+    @Override
+    public Color[] getColorsWithBrightness(int minBri, int maxBri) throws IOException {
+        return getColorsWithBrightness(minBri, maxBri, 0);
+    }
+
+    @Override
+    public Color[] getColorsWithBrightness(int minBri, int maxBri, int page) throws IOException {
+        ColorsRequest colorsRequest = new ColorsRequest()
+                .setBriRange(minBri, maxBri)
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(colorsRequest);
     }
 
     public Color[] executeRequest(ColourLoverRequest colorRequest) throws IOException {

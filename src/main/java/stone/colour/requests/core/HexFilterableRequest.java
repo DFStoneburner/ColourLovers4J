@@ -40,7 +40,7 @@ public abstract class HexFilterableRequest extends SearchableRequest {
         return hues;
     }
 
-    public <T extends PalettesRequest> T setHues(Hue... hues) {
+    public <T extends HexFilterableRequest> T setHues(Hue... hues) {
         StringBuilder huesBldr = new StringBuilder();
         for (Hue hue:hues) {
             this.hues.add(hue);
@@ -59,7 +59,7 @@ public abstract class HexFilterableRequest extends SearchableRequest {
         return hexes;
     }
 
-    public <T extends PalettesRequest> T setHexes(Hex... hexes) {
+    public <T extends HexFilterableRequest> T setHexes(Hex... hexes) {
         StringBuilder hexesBldr = new StringBuilder();
         for(Hex hex:hexes) {
             this.hexes.add(hex);
@@ -78,7 +78,7 @@ public abstract class HexFilterableRequest extends SearchableRequest {
         return hexLogic;
     }
 
-    public <T extends PalettesRequest> T setHexLogic(HexLogic hexLogic) {
+    public <T extends HexFilterableRequest> T setHexLogic(HexLogic hexLogic) {
         this.hexLogic = hexLogic;
 
         appendParam("hex_logic", hexLogic.name());

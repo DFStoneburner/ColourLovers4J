@@ -17,6 +17,7 @@
 package stone.colour.services;
 
 import stone.colour.models.Stats;
+import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 
@@ -24,11 +25,40 @@ import java.io.IOException;
  * Created by Daniel Stoneburner on 9/5/2015.
  */
 public interface StatsService extends ColourLoverService<Stats> {
+
+    /**
+     * Gets the current statistics on Colors from ColourLovers.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Stats getColorsStats() throws IOException;
 
+    /**
+     * Gets the current statistics on Lovers from ColourLovers.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Stats getLoversStats() throws IOException;
 
+    /**
+     * Gets the current statistics on Palettes from ColourLovers.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Stats getPalettesStats() throws IOException;
 
+    /**
+     * Gets the current statistics on Patterns from ColourLovers.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
     Stats getPatternsStats() throws IOException;
 }

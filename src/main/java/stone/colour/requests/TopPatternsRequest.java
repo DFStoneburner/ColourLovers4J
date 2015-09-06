@@ -17,13 +17,14 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
+import stone.colour.models.Pattern;
 import stone.colour.requests.core.SearchableRequest;
 
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class TopPatternsRequest extends SearchableRequest {
-    protected TopPatternsRequest() {
+public class TopPatternsRequest extends PatternsRequest {
+    public TopPatternsRequest() {
         super(Endpoints.PATTERNS_TOP.getRoot());
     }
 }
