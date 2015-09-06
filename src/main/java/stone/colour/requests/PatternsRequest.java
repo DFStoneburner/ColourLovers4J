@@ -17,13 +17,17 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.SearchableRequest;
+import stone.colour.requests.core.HexFilterableRequest;
 
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class PatternsRequest extends SearchableRequest {
-    protected PatternsRequest() {
-        super(Endpoints.PATTERNS.getRoot());
+public class PatternsRequest extends HexFilterableRequest {
+    public PatternsRequest() {
+        super(Endpoints.PATTERNS_ROOT.getRoot());
+    }
+
+    protected PatternsRequest(String root) {
+        super(root);
     }
 }

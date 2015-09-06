@@ -32,7 +32,7 @@ public class ColorRequestTests {
     public void testNoParams() {
         ColorRequest colorRequest = new ColorRequest();
 
-        assertEquals(Endpoints.COLOR.getRoot(), colorRequest.getAbsoluteUrl());
+        assertEquals(Endpoints.COLOR_ROOT.getRoot(), colorRequest.getAbsoluteUrl());
     }
 
 
@@ -40,6 +40,6 @@ public class ColorRequestTests {
     public void testHexValue() {
         ColorRequest colorRequest = new ColorRequest().setValue("000000");
 
-        assertEquals(Endpoints.COLOR.getRoot() + "/000000", colorRequest.getAbsoluteUrl());
+        assertEquals(Endpoints.COLOR_ROOT.getRoot() + "/000000", colorRequest.getAbsoluteUrl());
     }
 }

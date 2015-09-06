@@ -26,7 +26,7 @@ public class PalettesRequest extends HexFilterableRequest {
     private boolean showPaletteWidths;
 
     public PalettesRequest() {
-        super(Endpoints.PALETTES.getRoot());
+        super(Endpoints.PALETTES_ROOT.getRoot());
 
     }
 

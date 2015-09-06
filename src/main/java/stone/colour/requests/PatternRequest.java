@@ -17,15 +17,13 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.HexFilterableRequest;
 import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
 
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
 public class PatternRequest extends SingleValueRequest {
     public PatternRequest() {
-        super(Endpoints.PATTERN.getRoot());
+        super(Endpoints.PATTERN_ROOT.getRoot());
     }
 }

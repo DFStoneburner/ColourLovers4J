@@ -16,14 +16,24 @@
 
 package stone.colour.services;
 
-import stone.colour.models.Base;
 import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 
 /**
+ * Base interface that defines a common pattern for centralizing the call logic
+ * within the implementing services.
+ *
  * Created by Daniel Stoneburner on 9/3/2015.
  */
-public interface ColourLoverService<T extends Object> {
-    public T executeRequest(ColourLoverRequest request) throws IOException;
+public interface ColourLoverService<T> {
+    /**
+     * The common call that each implementing service will make to create
+     * compatibility between the services and the requests pattern.
+     *
+     * @param request request to be executed with variables all defined
+     * @return the parsed/deserialized response from the request
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     */
+    T executeRequest(ColourLoverRequest request) throws IOException;
 }

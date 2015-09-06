@@ -22,8 +22,8 @@ import stone.colour.requests.core.SearchableRequest;
 /**
  * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class NewPatternsRequest extends SearchableRequest {
-    protected NewPatternsRequest() {
+public class NewPatternsRequest extends PatternsRequest {
+    public NewPatternsRequest() {
         super(Endpoints.PATTERNS_NEW.getRoot());
     }
 }

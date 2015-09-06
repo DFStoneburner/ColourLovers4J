@@ -22,8 +22,7 @@ import stone.colour.adapters.HexAdapter;
 import stone.colour.client.ColourLoverClient;
 import stone.colour.models.Hex;
 import stone.colour.models.Pattern;
-import stone.colour.requests.PatternRequest;
-import stone.colour.requests.RandomPatternRequest;
+import stone.colour.requests.*;
 import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
@@ -63,6 +62,94 @@ public class PatternServiceImpl implements PatternService {
         return patternsResponse != null && patternsResponse.length > 0
                 ? patternsResponse[0]
                 : null;
+    }
+
+    @Override
+    public Pattern[] getNewPatterns() throws IOException {
+        return getNewPatterns(0);
+    }
+
+    @Override
+    public Pattern[] getTopPatterns() throws IOException {
+        return getTopPatterns(0);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithColors(String... stringHexes) throws IOException {
+        return getPatternsWithColors(0, stringHexes);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithColors(Hex... hexes) throws IOException {
+        return getPatternsWithColors(0, hexes);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithHues(String... stringHues) throws IOException {
+        return getPatternsWithHues(0, stringHues);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithHues(PatternsRequest.Hue... hues) throws IOException {
+        return getPatternsWithHues(0, hues);
+    }
+
+    @Override
+    public Pattern[] getNewPatterns(int page) throws IOException {
+        NewPatternsRequest newPatternRequest = new NewPatternsRequest()
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(newPatternRequest);
+    }
+
+    @Override
+    public Pattern[] getTopPatterns(int page) throws IOException {
+        TopPatternsRequest topPatternRequest = new TopPatternsRequest()
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(topPatternRequest);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithColors(int page, String... stringHexes) throws IOException {
+        Hex[] hexes = new Hex[stringHexes.length];
+        for(int i = 0; i < stringHexes.length; i++) {
+            hexes [i] = new Hex(stringHexes[i]);
+        }
+
+        return getPatternsWithColors(0, hexes);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithColors(int page, Hex... hexes) throws IOException {
+        PatternsRequest patternsRequest = new PatternsRequest()
+                .setHexes(hexes)
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(patternsRequest);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithHues(int page, String... stringHues) throws IOException {
+        PatternsRequest.Hue[] hues = new PatternsRequest.Hue[stringHues.length];
+        for(int i = 0; i < stringHues.length; i++) {
+            hues [i] = PatternsRequest.Hue.valueOf(stringHues[i]);
+        }
+
+        return getPatternsWithHues(page, hues);
+    }
+
+    @Override
+    public Pattern[] getPatternsWithHues(int page, PatternsRequest.Hue... hues) throws IOException {
+        PatternsRequest patternsRequest = new PatternsRequest()
+                .setHues(hues)
+                .setNumResults(pageSize)
+                .setResultOffset(page * pageSize);
+
+        return executeRequest(patternsRequest);
     }
 
     @Override

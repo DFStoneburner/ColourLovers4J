@@ -53,14 +53,22 @@ public class LoverServiceImpl implements LoverService {
     }
 
     @Override
+    public Lover[] getNewLovers() throws IOException {
+        return getNewLovers(0);
+    }
+
+    @Override
     public Lover[] getNewLovers(int page) throws IOException {
         NewLoversRequest loversRequest = new NewLoversRequest()
                 .setNumResults(pageSize)
                 .setResultOffset(page * pageSize);
 
-        Lover[] loversResponse = executeRequest(loversRequest);
+        return executeRequest(loversRequest);
+    }
 
-        return loversResponse;
+    @Override
+    public Lover[] getTopLovers() throws IOException {
+        return getTopLovers(0);
     }
 
     @Override
@@ -69,9 +77,7 @@ public class LoverServiceImpl implements LoverService {
                 .setNumResults(pageSize)
                 .setResultOffset(page * pageSize);
 
-        Lover[] loversResponse = executeRequest(loversRequest);
-
-        return loversResponse;
+        return executeRequest(loversRequest);
     }
 
     @Override

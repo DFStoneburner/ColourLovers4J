@@ -43,36 +43,28 @@ public class StatsServiceImpl implements StatsService {
     public Stats getColorsStats() throws IOException {
         StatsColorsRequest statsColorsRequest = new StatsColorsRequest();
 
-        Stats statsResponse = executeRequest(statsColorsRequest);
-
-        return statsResponse;
+        return executeRequest(statsColorsRequest);
     }
 
     @Override
     public Stats getLoversStats() throws IOException {
         StatsLoversRequest statsLoversRequest = new StatsLoversRequest();
 
-        Stats statsResponse = executeRequest(statsLoversRequest);
-
-        return statsResponse;
+        return executeRequest(statsLoversRequest);
     }
 
     @Override
     public Stats getPalettesStats() throws IOException {
         StatsPalettesRequest statsPalettesRequest = new StatsPalettesRequest();
 
-        Stats statsResponse = executeRequest(statsPalettesRequest);
-
-        return statsResponse;
+        return executeRequest(statsPalettesRequest);
     }
 
     @Override
     public Stats getPatternsStats() throws IOException {
         StatsPatternsRequest statsPatternsRequest = new StatsPatternsRequest();
 
-        Stats statsResponse = executeRequest(statsPatternsRequest);
-
-        return statsResponse;
+        return executeRequest(statsPatternsRequest);
     }
 
     public Stats executeRequest(ColourLoverRequest colorRequest) throws IOException {

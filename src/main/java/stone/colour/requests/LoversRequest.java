@@ -24,7 +24,7 @@ import stone.colour.requests.core.SortableRequest;
  */
 public class LoversRequest extends SortableRequest {
     public LoversRequest() {
-        super(Endpoints.LOVERS.getRoot());
+        super(Endpoints.LOVERS_ROOT.getRoot());
     }
 
     protected LoversRequest(String root) {

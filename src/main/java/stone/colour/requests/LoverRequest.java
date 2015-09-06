@@ -24,6 +24,6 @@ import stone.colour.requests.core.SingleValueRequest;
  */
 public class LoverRequest extends SingleValueRequest{
     public LoverRequest() {
-        super(Endpoints.LOVER.getRoot());
+        super(Endpoints.LOVER_ROOT.getRoot());
     }
 }

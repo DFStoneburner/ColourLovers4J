@@ -29,7 +29,7 @@ public class ColorsRequest extends SearchableRequest {
     private int briMaximum;
 
     public ColorsRequest() {
-        super(Endpoints.COLORS.getRoot());
+        super(Endpoints.COLORS_ROOT.getRoot());
     }
 
     protected ColorsRequest(String root) {
@@ -61,7 +61,7 @@ public class ColorsRequest extends SearchableRequest {
         return briMaximum;
     }
 
-    public <T extends ColorsRequest> T setBriRange(int briMaximum, int briMinimum) {
+    public <T extends ColorsRequest> T setBriRange(int briMinimum, int briMaximum) {
         this.briMaximum = briMaximum;
         this.briMinimum = briMinimum;
 

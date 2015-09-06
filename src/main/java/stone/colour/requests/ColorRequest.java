@@ -17,15 +17,13 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
 import stone.colour.requests.core.SingleValueRequest;
-import stone.colour.requests.core.SortableRequest;
 
 /**
  * Created by Daniel Stoneburner on 8/27/2015.
  */
 public class ColorRequest extends SingleValueRequest {
     public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
+        super(Endpoints.COLOR_ROOT.getRoot());
     }
 }
