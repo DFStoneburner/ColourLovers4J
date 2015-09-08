@@ -17,24 +17,13 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
+import stone.colour.requests.core.SingleValueRequest;
 
 /**
  * Created by Daniel Stoneburner on 8/27/2015.
  */
-public class ColorRequest extends ColourLoverRequest {
-    private String hexValue;
-
+public class ColorRequest extends SingleValueRequest {
     public ColorRequest() {
-        super(Endpoints.COLOR.getRoot());
-    }
-
-    public String getHexValue() {
-        return hexValue;
-    }
-
-    public ColorRequest setHexValue(String hexValue) {
-        this.hexValue = hexValue;
-        appendUrl(hexValue);
-        return this;
+        super(Endpoints.COLOR_ROOT.getRoot());
     }
 }

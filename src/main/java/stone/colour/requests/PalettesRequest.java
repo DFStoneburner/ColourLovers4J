@@ -17,13 +17,33 @@
 package stone.colour.requests;
 
 import stone.colour.Endpoints;
-import stone.colour.requests.core.ColourLoverRequest;
+import stone.colour.requests.core.HexFilterableRequest;
 
 /**
- * Created by Daniel Stoneburner on 8/29/2015.
+ * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class RandomColorRequest extends ColourLoverRequest {
-    public RandomColorRequest() {
-        super(Endpoints.COLOR_RANDOM.getRoot());
+public class PalettesRequest extends HexFilterableRequest {
+    private boolean showPaletteWidths;
+
+    public PalettesRequest() {
+        super(Endpoints.PALETTES_ROOT.getRoot());
+
+    }
+
+    protected PalettesRequest(String root) {
+        super(root);
+
+    }
+
+    public boolean isShowPaletteWidths() {
+        return showPaletteWidths;
+    }
+
+    public <T extends PalettesRequest> T setShowPaletteWidths(boolean showPaletteWidths) {
+        this.showPaletteWidths = showPaletteWidths;
+
+        appendParam("showPaletteWidths", (showPaletteWidths ? "1" : "0"));
+
+        return (T) this;
     }
 }

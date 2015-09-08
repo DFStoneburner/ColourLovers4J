@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package stone.colour.requests;
+package stone.colour.requests.core;
 
 /**
  * Created by Daniel Stoneburner on 8/27/2015.
@@ -46,7 +46,7 @@ public abstract class ColourLoverRequest {
 
     public ColourLoverRequest setCallback(String callback) {
         this.callback = callback;
-        appendParam("callback", callback);
+        appendParam("jsonCallback", callback);
         return this;
     }
 

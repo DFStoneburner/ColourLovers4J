@@ -14,21 +14,25 @@
  *    limitations under the License.
  */
 
-group 'stone.colour'
-version '1.0-SNAPSHOT'
+package stone.colour.requests.core;
 
-apply plugin: 'java'
+/**
+ * Created by Daniel Stoneburner on 9/4/2015.
+ */
+public abstract class SingleValueRequest extends ColourLoverRequest {
+    private String value;
 
-sourceCompatibility = 1.7
+    protected SingleValueRequest(String root) {
+        super(root);
+    }
 
-repositories {
-    mavenCentral()
-}
+    public String getValue() {
+        return value;
+    }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
-
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    public <T extends SingleValueRequest> T setValue(String value) {
+        this.value = value;
+        appendUrl(value);
+        return (T) this;
+    }
 }

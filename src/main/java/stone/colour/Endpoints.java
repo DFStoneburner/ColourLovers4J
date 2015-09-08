@@ -21,12 +21,29 @@ package stone.colour;
  */
 public enum Endpoints {
 
-    COLORS("http://www.colourlovers.com/api/colors"),
-    COLORS_NEW("http://www.colourlovers.com/api/colors/new"),
-    COLORS_TOP("http://www.colourlovers.com/api/colors/top"),
-
-    COLOR_RANDOM("http://www.colourlovers.com/api/colors/random"),
-    COLOR("http://www.colourlovers.com/api/color");
+    COLOR_ROOT("http://www.colourlovers.com/api/color"),
+    COLORS_ROOT(COLOR_ROOT.getRoot() + "s"),
+    COLOR_RANDOM(COLORS_ROOT.getRoot() + "/random"),
+    COLORS_NEW(COLORS_ROOT.getRoot() + "/new"),
+    COLORS_TOP(COLORS_ROOT.getRoot() + "/top"),
+    LOVER_ROOT("http://www.colourlovers.com/api/lover"),
+    LOVERS_ROOT(LOVER_ROOT.getRoot() + "s"),
+    LOVERS_NEW(LOVERS_ROOT.getRoot() + "/new"),
+    LOVERS_TOP(LOVERS_ROOT.getRoot() + "/top"),
+    PALETTE_ROOT("http://www.colourlovers.com/api/palette"),
+    PALETTES_ROOT(PALETTE_ROOT.getRoot() + "s"),
+    PALETTE_RANDOM(PALETTES_ROOT.getRoot() + "/random"),
+    PALETTES_NEW(PALETTES_ROOT.getRoot() + "/new"),
+    PALETTES_TOP(PALETTES_ROOT.getRoot() + "/top"),
+    PATTERN_ROOT("http://www.colourlovers.com/api/pattern"),
+    PATTERNS_ROOT(PATTERN_ROOT.getRoot() + "s"),
+    PATTERN_RANDOM(PATTERNS_ROOT.getRoot() + "/random"),
+    PATTERNS_NEW(PATTERNS_ROOT.getRoot() + "/new"),
+    PATTERNS_TOP(PATTERNS_ROOT.getRoot() + "/top"),
+    STATS_COLORS("http://www.colourlovers.com/api/stats/colors"),
+    STATS_PALETTES("http://www.colourlovers.com/api/stats/palettes"),
+    STATS_PATTERNS("http://www.colourlovers.com/api/stats/patterns"),
+    STATS_LOVERS("http://www.colourlovers.com/api/stats/lovers");
 
     private String root;
 

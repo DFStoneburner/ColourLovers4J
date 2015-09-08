@@ -14,21 +14,19 @@
  *    limitations under the License.
  */
 
-group 'stone.colour'
-version '1.0-SNAPSHOT'
+package stone.colour.models;
 
-apply plugin: 'java'
+/**
+ * Created by Daniel Stoneburner on 9/5/2015.
+ */
+public class Stats {
+    long total;
 
-sourceCompatibility = 1.7
+    public long getTotal() {
+        return total;
+    }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
-
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    public void setTotal(long total) {
+        this.total = total;
+    }
 }

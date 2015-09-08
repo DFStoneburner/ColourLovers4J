@@ -17,45 +17,46 @@
 package stone.colour.models;
 
 import java.net.URL;
+import java.util.Date;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/3/2015.
  */
-public class Color extends ImageBase {
+public abstract class Base {
+    long id;
+    String userName;
+    URL url;
+    URL apiUrl;
 
-    Hex hex;
-    RGB rgb;
-    HSV hsv;
-
-    public Hex getHex() {
-        return hex;
+    public long getId() {
+        return id;
     }
 
-    public void setHex(Hex hex) {
-        this.hex = hex;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public RGB getRgb() {
-        return rgb;
+    public String getUsername() {
+        return userName;
     }
 
-    public void setRgb(RGB rgb) {
-        this.rgb = rgb;
+    public void setUser(String userName) {
+        this.userName = userName;
     }
 
-    public HSV getHsv() {
-        return hsv;
+    public URL getUrl() {
+        return url;
     }
 
-    public void setHsv(HSV hsv) {
-        this.hsv = hsv;
+    public void setUrl(URL url) {
+        this.url = url;
     }
 
-    public String getDescription() {
-        return description;
+    public URL getApiUrl() {
+        return apiUrl;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setApiUrl(URL apiUrl) {
+        this.apiUrl = apiUrl;
     }
 }

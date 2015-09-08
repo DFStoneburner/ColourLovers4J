@@ -16,46 +16,37 @@
 
 package stone.colour.models;
 
-import java.net.URL;
+import java.util.Date;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Created by Daniel Stoneburner on 9/5/2015.
  */
-public class Color extends ImageBase {
+public class Comment {
+    Date commentDate;
+    String commentUserName;
+    String commentComments;
 
-    Hex hex;
-    RGB rgb;
-    HSV hsv;
-
-    public Hex getHex() {
-        return hex;
+    public Date getCommentDate() {
+        return commentDate;
     }
 
-    public void setHex(Hex hex) {
-        this.hex = hex;
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
     }
 
-    public RGB getRgb() {
-        return rgb;
+    public String getCommentUserName() {
+        return commentUserName;
     }
 
-    public void setRgb(RGB rgb) {
-        this.rgb = rgb;
+    public void setCommentUserName(String commentUserName) {
+        this.commentUserName = commentUserName;
     }
 
-    public HSV getHsv() {
-        return hsv;
+    public String getCommentComments() {
+        return commentComments;
     }
 
-    public void setHsv(HSV hsv) {
-        this.hsv = hsv;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCommentComments(String commentComments) {
+        this.commentComments = commentComments;
     }
 }

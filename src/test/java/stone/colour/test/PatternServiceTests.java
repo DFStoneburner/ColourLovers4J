@@ -17,29 +17,33 @@
 package stone.colour.test;
 
 import org.junit.Test;
-import stone.colour.Endpoints;
-import stone.colour.requests.ColorRequest;
+import stone.colour.models.Pattern;
+import stone.colour.services.PatternService;
+import stone.colour.services.PatternServiceImpl;
 
-import static org.junit.Assert.assertEquals;
+import java.io.IOException;
 
+import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by Daniel on 8/29/2015.
+ * Created by Daniel Stoneburner on 9/4/2015.
  */
-public class ColorRequestTests {
-
+public class PatternServiceTests {
     @Test
-    public void testNoParams() {
-        ColorRequest colorRequest = new ColorRequest();
+    public void getSpecificPattern() throws IOException {
+        PatternService patternService = new PatternServiceImpl();
 
-        assertEquals(Endpoints.COLOR_ROOT.getRoot(), colorRequest.getAbsoluteUrl());
+        Pattern pattern = patternService.getPattern("1451");
+
+        assertNotNull(pattern);
     }
 
-
     @Test
-    public void testHexValue() {
-        ColorRequest colorRequest = new ColorRequest().setValue("000000");
+    public void getRandomPattern() throws IOException {
+        PatternService patternService = new PatternServiceImpl();
 
-        assertEquals(Endpoints.COLOR_ROOT.getRoot() + "/000000", colorRequest.getAbsoluteUrl());
+        Pattern pattern = patternService.getRandomPattern();
+
+        assertNotNull(pattern);
     }
 }

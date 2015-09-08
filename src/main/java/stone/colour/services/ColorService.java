@@ -16,71 +16,104 @@
 
 package stone.colour.services;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import stone.colour.client.ColourLoverClient;
 import stone.colour.models.Color;
-import stone.colour.requests.ColorRequest;
-import stone.colour.requests.ColourLoverRequest;
-import stone.colour.requests.RandomColorRequest;
-import stone.colour.requests.TopColorsRequest;
+import stone.colour.requests.core.ColourLoverRequest;
 
 import java.io.IOException;
 
 /**
- * Created by Daniel Stoneburner on 8/27/2015.
+ * Service layer for single and multiple Color operations.
+ *
+ * Created by Daniel Stoneburner on 9/3/2015.
+ *
+ * @see ColourLoverService
  */
-public class ColorService {
-    private Gson gson;
-    private int pageSize = 20;
+public interface ColorService extends ColourLoverService<Color[]> {
 
-    public ColorService() {
-        gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd HH:mm:ss")
-                .create();
-    }
+    /**
+     * Gets a Color based on its ID.
+     *
+     * @param hexId the ColourLovers id of the color
+     * @return the color queried or null if it does not exist
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
+    Color getColor(String hexId) throws IOException;
 
-    public Color getColor(String hexValue) throws IOException {
-        ColorRequest colorRequest = new ColorRequest()
-                .setHexValue(hexValue)
-                .setFormat("json");
+    /**
+     * Gets a random Color. Subsequent calls will return results from
+     * subsequent calls to ColourLovers providing new results.
+     *
+     * @return the color provided by ColourLovers random endpoint
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
+    Color getRandomColor() throws IOException;
 
-        Color[] colorsResponse = executeRequest(colorRequest);
+    /**
+     * A wrapper method for {@link #getTopColors(int page)} which gets the first
+     * page of results.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @see #getTopColors(int)
+     */
+    Color[] getTopColors() throws IOException;
 
-        return colorsResponse != null && colorsResponse.length > 0
-                ? colorsResponse[0]
-                : null;
-    }
+    /**
+     * Gets the specified page of the most popular Colors.
+     *
+     * @param page the page number that determines the offset to query
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
+    Color[] getTopColors(int page) throws IOException;
 
-    public Color getRandomColor() throws IOException {
-        RandomColorRequest colorRequest = new RandomColorRequest()
-                .setFormat("json");
+    /**
+     * A wrapper method for {@link #getNewColors(int page)} which gets the first
+     * page of results.
+     *
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @see #getNewColors(int)
+     */
+    Color[] getNewColors() throws IOException;
 
-        Color[] colorsResponse = executeRequest(colorRequest);
+    /**
+     * Gets the specified page of the most recent Colors.
+     *
+     * @param page the page number that determines the offset to query
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
+    Color[] getNewColors(int page) throws IOException;
 
-        return colorsResponse != null && colorsResponse.length > 0
-                ? colorsResponse[0]
-                : null;
-    }
+    /**
+     * A wrapper method for {@link #getColorsWithBrightness(int, int, int)} which gets
+     * the first page of results.
+     *
+     * @param minBri minimum brightness, must be gt 0
+     * @param maxBri maximum brightness, must be lt 99
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     * @see #getColorsWithBrightness(int, int, int)
+     */
+    Color[] getColorsWithBrightness(int minBri, int maxBri) throws IOException;
 
-    public Color[] getTopColors(int page) throws IOException {
-        TopColorsRequest colorRequest = new TopColorsRequest()
-                .setNumResults(pageSize)
-                .setResultOffset(page * pageSize)
-                .setFormat("json");
-
-        Color[] colorsResponse = executeRequest(colorRequest);
-
-        return colorsResponse;
-    }
-
-    private Color[] executeRequest(ColourLoverRequest colorRequest) throws IOException {
-        try {
-            String response = ColourLoverClient.executeRequest(colorRequest);
-            return gson.fromJson(response, Color[].class);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw e;
-        }
-    }
+    /**
+     * Gets the specified page of Colors with specified brightness.
+     *
+     * @param minBri minimum brightness, must be gt 0
+     * @param maxBri maximum brightness, must be lt 99
+     * @param page the page number that determines the offset to query
+     * @return
+     * @throws IOException when underlying {@link #executeRequest(ColourLoverRequest)} encounters an exception
+     * @see #executeRequest
+     */
+    Color[] getColorsWithBrightness(int minBri, int maxBri, int page) throws IOException;
 }

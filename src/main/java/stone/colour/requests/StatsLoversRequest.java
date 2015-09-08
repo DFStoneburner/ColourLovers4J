@@ -14,21 +14,16 @@
  *    limitations under the License.
  */
 
-group 'stone.colour'
-version '1.0-SNAPSHOT'
+package stone.colour.requests;
 
-apply plugin: 'java'
+import stone.colour.Endpoints;
+import stone.colour.requests.core.ColourLoverRequest;
 
-sourceCompatibility = 1.7
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
-
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+/**
+ * Created by Daniel Stoneburner on 9/5/2015.
+ */
+public class StatsLoversRequest extends ColourLoverRequest {
+    public StatsLoversRequest() {
+        super(Endpoints.STATS_LOVERS.getRoot());
+    }
 }

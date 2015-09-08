@@ -14,21 +14,18 @@
  *    limitations under the License.
  */
 
-group 'stone.colour'
-version '1.0-SNAPSHOT'
+package stone.colour.models;
 
-apply plugin: 'java'
+import java.util.List;
 
-sourceCompatibility = 1.7
+public class Pattern extends ImageBase {
+    List<Hex> colors;
 
-repositories {
-    mavenCentral()
-}
+    public List<Hex> getColors() {
+        return colors;
+    }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile "org.mockito:mockito-core:1.+"
-
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    public void setColors(List<Hex> colors) {
+        this.colors = colors;
+    }
 }
