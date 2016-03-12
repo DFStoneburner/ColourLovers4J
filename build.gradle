@@ -32,3 +32,21 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
 }
+
+test {
+    useJUnit {
+        excludeCategories 'stone.colour.test.categories.IntegrationTest'
+    }
+}
+
+task integrationTest(type: Test) {
+    useJUnit {
+        includeCategories 'stone.colour.test.categories.IntegrationTest'
+    }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events 'passed'
+    }
+}

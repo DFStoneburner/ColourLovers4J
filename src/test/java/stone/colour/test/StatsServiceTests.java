@@ -17,9 +17,11 @@
 package stone.colour.test;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import stone.colour.models.Stats;
 import stone.colour.services.StatsService;
 import stone.colour.services.StatsServiceImpl;
+import stone.colour.test.categories.IntegrationTest;
 
 import java.io.IOException;
 
@@ -30,6 +32,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class StatsServiceTests {
     @Test
+    @Category(IntegrationTest.class)
     public void getColorsStats() throws IOException {
         StatsService statsService = new StatsServiceImpl();
 
@@ -39,6 +42,7 @@ public class StatsServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void getLoversStats() throws IOException {
         StatsService statsService = new StatsServiceImpl();
 
@@ -48,6 +52,7 @@ public class StatsServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void getPalettesStats() throws IOException {
         StatsService statsService = new StatsServiceImpl();
 
@@ -57,6 +62,7 @@ public class StatsServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void getPatternsStats() throws IOException {
         StatsService statsService = new StatsServiceImpl();
 

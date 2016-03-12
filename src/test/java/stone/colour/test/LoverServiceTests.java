@@ -17,11 +17,11 @@
 package stone.colour.test;
 
 import org.junit.Test;
-import stone.colour.models.Color;
+import org.junit.experimental.categories.Category;
 import stone.colour.models.Lover;
-import stone.colour.services.ColorServiceImpl;
 import stone.colour.services.LoverService;
 import stone.colour.services.LoverServiceImpl;
+import stone.colour.test.categories.IntegrationTest;
 
 import java.io.IOException;
 
@@ -34,13 +34,16 @@ import static org.junit.Assert.assertTrue;
 public class LoverServiceTests {
 
     @Test
+    @Category(IntegrationTest.class)
     public void testGetLover() throws IOException {
         LoverService loverService = new LoverServiceImpl();
         Lover lover = loverService.getLover("dfstoneburner");
 
         assertNotNull(lover);
     }
+
     @Test
+    @Category(IntegrationTest.class)
     public void testGetNewLovers() throws IOException {
         LoverService loverService = new LoverServiceImpl();
         Lover[] lovers = loverService.getNewLovers(0);
@@ -48,7 +51,9 @@ public class LoverServiceTests {
         assertNotNull(lovers);
         assertTrue(lovers.length > 0);
     }
+
     @Test
+    @Category(IntegrationTest.class)
     public void testGetTopLovers() throws IOException {
         LoverService loverService = new LoverServiceImpl();
         Lover[] lovers = loverService.getTopLovers(0);

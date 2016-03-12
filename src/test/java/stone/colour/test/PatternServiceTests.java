@@ -17,9 +17,11 @@
 package stone.colour.test;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import stone.colour.models.Pattern;
 import stone.colour.services.PatternService;
 import stone.colour.services.PatternServiceImpl;
+import stone.colour.test.categories.IntegrationTest;
 
 import java.io.IOException;
 
@@ -30,6 +32,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class PatternServiceTests {
     @Test
+    @Category(IntegrationTest.class)
     public void getSpecificPattern() throws IOException {
         PatternService patternService = new PatternServiceImpl();
 
@@ -39,6 +42,7 @@ public class PatternServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void getRandomPattern() throws IOException {
         PatternService patternService = new PatternServiceImpl();
 
