@@ -14,10 +14,11 @@ package stone.colour.test;/*
  *    limitations under the License.
  */
 
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import stone.colour.models.Color;
 import stone.colour.services.ColorServiceImpl;
+import stone.colour.test.categories.IntegrationTest;
 
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ import static org.junit.Assert.assertNotNull;
 public class ColorServiceTests {
 
     @Test
+    @Category(IntegrationTest.class)
     public void testGet() throws IOException {
         ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
         Color color = colorServiceImpl.getColor("6B4106");
@@ -39,6 +41,7 @@ public class ColorServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void testGetRandomColors() throws IOException {
         ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
         Color color = colorServiceImpl.getRandomColor();
@@ -47,6 +50,7 @@ public class ColorServiceTests {
     }
 
     @Test
+    @Category(IntegrationTest.class)
     public void testGetTopColors() throws IOException {
         ColorServiceImpl colorServiceImpl = new ColorServiceImpl();
         Color[] firstPage = colorServiceImpl.getTopColors(0);

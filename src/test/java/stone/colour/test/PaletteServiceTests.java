@@ -16,19 +16,22 @@
 
 package stone.colour.test;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import stone.colour.models.Palette;
 import stone.colour.services.PaletteServiceImpl;
+import stone.colour.test.categories.IntegrationTest;
 
 import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Daniel Stoneburner on 9/3/2015.
  */
 public class PaletteServiceTests {
     @Test
+    @Category(IntegrationTest.class)
     public void testGet() throws IOException {
         PaletteServiceImpl paletteService = new PaletteServiceImpl();
 
